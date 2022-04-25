@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+        window.onload = function(){
+
+           var u1 = document.getElementById("u1");
+
+           var btn01 = document.getElementById("btn01");
+           btn01.onclick = function(){
+                var li = document.createElement("li");
+                li.innerHTML = "<a href='javascript:;'>超連接</a>";
+
+                // 將li添加到ul中
+                u1.appendChild(li);
+           };
+           
+            /**
+             * 為每一個超連結綁定事件
+             * */
+            var allA = document.getElementsByTagName("a");
+
+            for(var i=0; i<allA.length; i++){
+                allA[i].onclick = function(){
+                    alert("我是a的單擊響應函數" + i);
+                }
+            }
+
+            // 為u1綁定單擊響應函數
+            u1.onclick = function(){
+                alert("我是u1的單擊響應函數");
+            };
+
+        }
+    </script>
+
+</head>
+<body>
+    <button id="btn01">添加超鏈結</button>
+
+    <ul id="u1">
+        <li><a href="javascript:;">超連接1</a></li>
+        <li><a href="javascript:;">超連接2</a></li>
+        <li><a href="javascript:;">超連接3</a></li>
+    </ul>
+    
+</body>
+</html>
